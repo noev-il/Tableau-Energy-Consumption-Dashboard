@@ -1,3 +1,7 @@
 # World_Energy_Consumption
 
-Study the renewable energy usage across mid-size to large countries by GDP.
+Sheet 1 - Countries organized by GDP (Heatmap) and Energy Consumption (ToolTip)
+
+Sheet 2 - Countries organized by Energy Per GDP (Heatmap) and Primary Energy Consumption (ToolTip)
+
+Sheet 3 - Global Consumption of Each Source of Energy Solar, Wind, Fossil Fuels, Oil, Biofuel, Gas, Nuclear, Coal, Hydro, and Coal (PieChart)
