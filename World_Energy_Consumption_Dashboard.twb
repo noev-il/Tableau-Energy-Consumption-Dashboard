@@ -1869,6 +1869,9 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='Total Energy Consumption' datatype='real' name='[Calculation_3820108068511453184]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM(IFNULL([coal_consumption], 0) + &#10;IFNULL([fossil_fuel_consumption], 0) + &#10;IFNULL([gas_consumption], 0) +&#10;IFNULL([hydro_consumption], 0) +&#10;IFNULL([low_carbon_consumption], 0) +&#10;IFNULL([nuclear_consumption], 0) + &#10;IFNULL([oil_consumption], 0) + &#10;IFNULL([solar_consumption], 0) + &#10;IFNULL([wind_consumption], 0)&#10;)' />
+      </column>
       <_.fcp.ObjectModelTableType.true...column caption='World Energy Consumption.csv' datatype='table' name='[__tableau_internal_object_id__].[World Energy Consumption.csv_5A8332F50C11430F8EBFAC45F0463A03]' role='measure' type='quantitative' />
       <column caption='Biofuel Cons Change Pct' datatype='real' name='[biofuel_cons_change_pct]' role='measure' type='quantitative' />
       <column caption='Biofuel Cons Change Twh' datatype='real' name='[biofuel_cons_change_twh]' role='measure' type='quantitative' />
@@ -2731,7 +2734,9 @@
             <mapsource name='Tableau' />
           </mapsources>
           <datasource-dependencies datasource='federated.17ko6kw186fvq712ch1pg148dsv1'>
-            <column caption='Biofuel Consumption' datatype='real' name='[biofuel_consumption]' role='measure' type='quantitative' />
+            <column caption='Total Energy Consumption' datatype='real' name='[Calculation_3820108068511453184]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM(IFNULL([coal_consumption], 0) + &#10;IFNULL([fossil_fuel_consumption], 0) + &#10;IFNULL([gas_consumption], 0) +&#10;IFNULL([hydro_consumption], 0) +&#10;IFNULL([low_carbon_consumption], 0) +&#10;IFNULL([nuclear_consumption], 0) + &#10;IFNULL([oil_consumption], 0) + &#10;IFNULL([solar_consumption], 0) + &#10;IFNULL([wind_consumption], 0)&#10;)' />
+            </column>
             <column caption='Coal Consumption' datatype='real' name='[coal_consumption]' role='measure' type='quantitative' />
             <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
             <column caption='Fossil Fuel Consumption' datatype='real' name='[fossil_fuel_consumption]' role='measure' type='quantitative' />
@@ -2743,17 +2748,8 @@
             <column caption='Nuclear Consumption' datatype='real' name='[nuclear_consumption]' role='measure' type='quantitative' />
             <column caption='Oil Consumption' datatype='real' name='[oil_consumption]' role='measure' type='quantitative' />
             <column caption='Solar Consumption' datatype='real' name='[solar_consumption]' role='measure' type='quantitative' />
-            <column-instance column='[biofuel_consumption]' derivation='Sum' name='[sum:biofuel_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[coal_consumption]' derivation='Sum' name='[sum:coal_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[fossil_fuel_consumption]' derivation='Sum' name='[sum:fossil_fuel_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[gas_consumption]' derivation='Sum' name='[sum:gas_consumption:qk]' pivot='key' type='quantitative' />
             <column-instance column='[gdp]' derivation='Sum' name='[sum:gdp:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[hydro_consumption]' derivation='Sum' name='[sum:hydro_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[low_carbon_consumption]' derivation='Sum' name='[sum:low_carbon_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[nuclear_consumption]' derivation='Sum' name='[sum:nuclear_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[oil_consumption]' derivation='Sum' name='[sum:oil_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[solar_consumption]' derivation='Sum' name='[sum:solar_consumption:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[wind_consumption]' derivation='Sum' name='[sum:wind_consumption:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3820108068511453184]' derivation='User' name='[usr:Calculation_3820108068511453184:qk]' pivot='key' type='quantitative' />
             <column caption='Wind Consumption' datatype='real' name='[wind_consumption]' role='measure' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
@@ -2776,16 +2772,7 @@
             <encodings>
               <color column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:gdp:qk]' />
               <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[none:country:nk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:biofuel_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:coal_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:fossil_fuel_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:gas_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:hydro_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:low_carbon_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:nuclear_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:oil_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:solar_consumption:qk]' />
-              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[sum:wind_consumption:qk]' />
+              <lod column='[federated.17ko6kw186fvq712ch1pg148dsv1].[usr:Calculation_3820108068511453184:qk]' />
               <geometry column='[federated.17ko6kw186fvq712ch1pg148dsv1].[Geometry (generated)]' />
             </encodings>
             <style>
@@ -3030,7 +3017,7 @@
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+    <window class='worksheet' name='Sheet 1'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3099,7 +3086,7 @@
       </viewpoint>
       <simple-id uuid='{B8C84247-899C-432E-912F-08E72CD372ED}' />
     </window>
-    <window class='worksheet' name='Sheet 3'>
+    <window class='worksheet' maximized='true' name='Sheet 3'>
       <cards>
         <edge name='left'>
           <strip size='160'>
